@@ -28,10 +28,12 @@
 # `cap deploy` whenever you would like to deploy Errbit. Refer
 # to the Readme for more information.
 
-require 'bundler/capistrano'
 
+require 'bundler/capistrano' # Run automatically bundle:install after deploy:update_code
+# require "capistrano/ext/multistage"
+# set :whenever_environment, defer { stage }
+# require "whenever/capistrano"
 server "jupiter.azaupa.info", :app, :web, :db, :primary => true
-
 
 set :application, "boxroom"
 set :repository,  "git@github.com:andreazaupa/boxroom.git"
