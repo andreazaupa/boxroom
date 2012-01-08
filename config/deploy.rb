@@ -57,6 +57,16 @@ set :scm_verbose, true
 set(:current_branch) { `git branch`.match(/\* (\S+)\s/m)[1] || raise("Couldn't determine current branch") }
 set :branch, defer { current_branch }
 
+
+desc "Update remote database file with local copy"
+task :update_database_config do
+   run_locally("rsync --times --rsh=ssh --compress --human-readable --progress config/database.yml #{user}@#{domain}:#{shared_path}/config/database.yml")
+   run("ln -nfs #{shared_configs}/database.yml #{release_configs}/database.yml")
+   run("ln -nfs #{shared_configs}/production.sqlite #{release_configs}/../db/production.sqlite")
+end
+
+before "deploy:update_code", "deploy:update_database_config"
+
 # after 'deploy:update_code', 'errbit:symlink_configs'
 
 # namespace :deploy do
