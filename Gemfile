@@ -22,6 +22,9 @@ group :production do
   gem 'therubyracer'
 end
 
+group :development do
+	gem 'auth-deploy', :git => "git://github.com/develonlab/auth-deploy.git"
+end
 
 
 group :test do
