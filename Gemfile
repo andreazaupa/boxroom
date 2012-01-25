@@ -7,6 +7,7 @@ gem 'sqlite3'
 gem 'dynamic_form'
 gem 'acts_as_tree'
 gem 'paperclip'
+gem 'whenever', :git => 'git@github.com:develonlab/whenever.git'
 
 # Gems used only for assets and not required
 # in production environments by default.
