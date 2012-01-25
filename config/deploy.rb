@@ -12,6 +12,7 @@ set :repository,  "git@github.com:andreazaupa/boxroom.git"
 set :deploy_via, :remote_cache
 set :scm_verbose, true
 set :branch, "master"
+set :user, "azaupa"
 
 
 set :deploy_to, "/space/apache/htdocs/#{application}"
