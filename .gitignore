@@ -4,4 +4,3 @@ uploads/*
 tmp/*
 config/initializers/mailer.rb
 .sass-cache/
-config/database.yml
